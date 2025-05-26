@@ -1,71 +1,101 @@
-// Importér React for at kunne oprette en funktionel komponent
-import React from 'react';
+// 1) Importér React og useState-hook, så vi kan holde styr på om modal'en er åben
+import React, { useState } from 'react';
 
-// Importér nødvendige komponenter fra React Native
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+// 2) Importér de React Native-komponenter, vi skal bruge
+//    - View: som en <div> til at gruppere elementer
+//    - Text: til at vise tekst
+//    - Image: til billeder
+//    - TouchableOpacity: klikbare elementer med visuel feedback
+//    - Modal: til at lægge kortet oven på UI’et
+//    - StyleSheet, Dimensions: styling og skærm-mål
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Modal,
+  StyleSheet,
+  Dimensions
+} from 'react-native';
 
-// Importér ikoner fra Expo's Ionicons- og FontAwesome-bibliotek
-// Ionicons bruges til social-ikoner (like, kommentar, send, gem)
-// FontAwesome bruges til at vise stjerner (rating)
+// 3) Importér ikoner fra Expo — Ionicons til kort-ikonet, FontAwesome til stjernerne
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-// Importér stilarket til PostCard-komponenten
+// 4) Importér MapView og Marker fra react-native-maps til selve kortet
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+
+// 5) Importér dine eksisterende styles for selve kort-kortet (PostCard)
 import styles from '../styles/PostCardStyles';
 
-// Funktionel komponent der repræsenterer et enkelt opslag/post i feedet
-// Props som title, description osv. gør komponenten genanvendelig med forskellige data
-export default function PostCard({ title, description, image, price, rating }) {
+// 6) Definer komponenten og modtag props inkl. de nye latitude/longitude
+export default function PostCard({
+  title,        // Titel på posten (f.eks. "Ramen Heaven")
+  description,  // Kort beskrivelse (f.eks. "Authentic Japanese Ramen")
+  image,        // URL til billedet
+  price,        // Prisniveau (f.eks. "$$")
+  rating,       // Rating (f.eks. 4.5)
+  latitude,     // Breddegrad for pin
+  longitude     // Længdegrad for pin
+}) {
+  // 7) Lokalt state: holder styr på om kort-modal er synlig
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    // Overordnet container for hele post-kortet
+    // 8) Overordnet container med design fra PostCardStyles
     <View style={styles.card}>
 
-      {/* --------------------------- ACCOUNT BAR --------------------------- */}
-      {/* Øverste sektion: viser brugerkonto-info som profilbillede, brugernavn og follow-knap */}
+      {/* ===== ACCOUNT BAR ===== */}
       <View style={styles.accountBar}>
-        {/* Cirkulært profilbillede til venstre */}
+        {/* 9) Profilbillede, statisk placeholder */}
         <Image
-          source={{ uri: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Profile%20image%20placeholder.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvUHJvZmlsZSBpbWFnZSBwbGFjZWhvbGRlci5wbmciLCJpYXQiOjE3NDgwMTg5ODksImV4cCI6NDkwMTYxODk4OX0.MkjIJySFZ5NLIlOsAmS9xQ2QdmOwWxJCrTPqadMJ5Qg' }} // Dummy profilbillede
+          source={{
+            uri: 'https://…placeholder.png'
+          }}
           style={styles.profileImage}
         />
-
-        {/* Brugernavn ved siden af billedet */}
+        {/* 10) Brugernavn */}
         <Text style={styles.username}>Nomi User</Text>
-
-        {/* Follow-knap placeret til højre i linjen */}
+        {/* 11) Follow-knap */}
         <TouchableOpacity style={styles.followButton}>
           <Text style={styles.followText}>Follow</Text>
         </TouchableOpacity>
       </View>
 
-      {/* --------------------------- BILLEDE --------------------------- */}
-      {/* Midtersektion: billede der viser madoplevelsen */}
+      {/* ===== HOVEDBILLEDE ===== */}
       <Image source={{ uri: image }} style={styles.image} />
 
-      {/* --------------------------- TITEL OG BESKRIVELSE --------------------------- */}
-      {/* Titel og prisniveau i én linje */}
-      <Text style={styles.title}>{title} · {price}</Text>
+      {/* ===== TITEL & PRIS ===== */}
+      <Text style={styles.title}>
+        {title} · {price}
+      </Text>
 
-      {/* Kort beskrivelse under titlen */}
-      <Text style={styles.description}>{description}</Text>
+      {/* ===== BESKRIVELSE ===== */}
+      <Text style={styles.description}>
+        {description}
+      </Text>
 
-      {/* --------------------------- FOOTER: STJERNER OG HANDLINGER --------------------------- */}
+      {/* ===== FOOTER: RATING + HANDLINGER ===== */}
       <View style={styles.footer}>
-        {/* Venstre side: stjerner der viser vurdering (rating) */}
+        {/* 12) Stjerner dynamsk udfyldt efter rating */}
         <View style={styles.stars}>
-          {/* Generér 5 stjerner og udfyld afhængigt af rating */}
           {[...Array(5)].map((_, i) => (
             <FontAwesome
-              key={i} // Unik nøgle for hver stjerne
-              name={i < Math.round(rating) ? 'star' : 'star-o'} // Fyldt eller tom stjerne
+              key={i}
+              name={i < Math.round(rating) ? 'star' : 'star-o'}
               size={16}
-              color="#FFD700" // Guld-farve til stjerner
+              color="#FFD700"
             />
           ))}
         </View>
 
-        {/* Højre side: social-ikoner (like, kommentar, send, gem) */}
+        {/* 13) Handlinger inkl. map-ikon til at åbne modal */}
         <View style={styles.actions}>
+          {/* Kort-ikon: åbn modal når det trykkes */}
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
+            <Ionicons name="map-outline" size={20} color="#333" />
+          </TouchableOpacity>
+          {/* Øvrige sociale ikoner */}
           <TouchableOpacity>
             <Ionicons name="heart-outline" size={20} color="#333" />
           </TouchableOpacity>
@@ -73,13 +103,81 @@ export default function PostCard({ title, description, image, price, rating }) {
             <Ionicons name="chatbubble-outline" size={20} color="#333" />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Ionicons name="paper-plane-outline" size={20} color="#333" />
-          </TouchableOpacity>
-          <TouchableOpacity>
             <Ionicons name="bookmark-outline" size={20} color="#333" />
           </TouchableOpacity>
         </View>
       </View>
+
+      {/* ===== MODAL MED KORT ===== */}
+      <Modal
+        visible={modalVisible}                   // 14) Synlighed styret af state
+        transparent={true}                        // 15) Semitransparent baggrund
+        animationType="slide"                     // 16) Slide-op-animation
+        onRequestClose={() => setModalVisible(false)} // 17) Android back-knap lukker modal
+      >
+        {/* 18) Halvtransparent overlay */}
+        <View style={modalStyles.modalContainer}>
+          {/* 19) Hvid boks med kortet */}
+          <View style={modalStyles.mapContainer}>
+            <MapView
+              provider={PROVIDER_GOOGLE}         // 20) Brug Google Maps SDK
+              style={modalStyles.map}            // 21) Fyld boksen ud
+              initialRegion={{                   // 22) Centrer kortet på valgt lokation
+                latitude: latitude,
+                longitude: longitude,
+                latitudeDelta: 0.05,
+                longitudeDelta: 0.05,
+              }}
+            >
+              {/* 23) Pin på din valgte position */}
+              <Marker
+                coordinate={{ latitude, longitude }}
+                title={title}                    // 24) Titel vises ved pin
+                description={description}        // 25) Beskrivelse også
+              />
+            </MapView>
+            {/* 26) Luk-knap øverst til højre */}
+            <TouchableOpacity
+              style={modalStyles.closeButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={modalStyles.closeButtonText}>Luk</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
+
+// 27) Ekstra styles til modal-delen
+const modalStyles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',  // mørk overlay
+    justifyContent: 'center',            // centrer vertikalt
+    alignItems: 'center'                 // centrer horisontalt
+  },
+  mapContainer: {
+    width: Dimensions.get('window').width * 0.9,  // 90% af bredden
+    height: Dimensions.get('window').height * 0.7,// 70% af højden
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    overflow: 'hidden'
+  },
+  map: {
+    flex: 1                                 // fylder hele boksen
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: 'rgba(0,0,0,0.7)',     // semitransparent sort
+    padding: 8,
+    borderRadius: 20
+  },
+  closeButtonText: {
+    color: '#fff',
+    fontWeight: 'bold'
+  }
+});
