@@ -39,16 +39,23 @@ const styles = StyleSheet.create({
     marginTop: 12,
     padding: 10,
     backgroundColor: colors.text,
-    borderRadius: 6,
+    borderRadius: 10,
   },
   contactText: {
     color: colors.white,
     fontWeight: '600',
     textAlign: 'center',
   },
+  logoutButton: {
+    marginTop: 12,
+    padding: 10,
+    backgroundColor: colors.danger,
+    borderRadius: 10,
+
+  },
   logoutText: {
     color: colors.white,
-    marginTop: 8,
+    fontWeight: '600',
     textAlign: 'center',
   },
 });

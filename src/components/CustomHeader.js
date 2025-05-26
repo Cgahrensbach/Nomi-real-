@@ -40,6 +40,8 @@ export default function CustomHeader() {
 
           <TouchableOpacity style={styles.contactButton}>
             <Text style={styles.contactText}>Contact</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.logoutButton}>
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
         </View>
