@@ -3,23 +3,27 @@ import colors from './colors';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,                            // Fylder hele skærmen
-    backgroundColor: colors.background, // Baggrundsfarve defineret globalt                        // Afstand hele vejen rundt
+    flex: 1,
+    backgroundColor: colors.background,
   },
   input: {
-    borderWidth: 1,                      // Giver feltet en kant
-    borderColor: colors.text,            // Bruger tekstfarven som kantfarve
-    padding: 10,                         // Indvendig afstand i inputfeltet
-    borderRadius: 8,                    // Afrunder kanterne
-    marginBottom: 12,                   // Lidt luft under input
-    color: colors.text,                 // Gør teksten inde i feltet synlig
+    borderWidth: 1,
+    borderColor: colors.text,
+    padding: 10,
+    borderRadius: 10,
+    marginHorizontal: 25,  // Luft fra siderne
+    marginTop: 25,         // Luft oppefra
+    color: colors.text,
   },
-  inputPlaceholderColor: colors.text,   // Brugt til placeholder-farve i komponent
+  inputPlaceholderColor: colors.text,
   text: {
-    color: colors.text,                 // Tekstfarve
-    fontSize: 16,                       // Standard brødtekst-størrelse
+    color: colors.text,
+    fontSize: 16,
+    marginHorizontal: 25,  // Matcher input's venstre og højre margin
+    marginTop: 25,         // Luft nedad fra inputfeltet
   },
   textInput: {
-    margin: 15,
+    margin: 2,
   },
 });
+

@@ -34,10 +34,7 @@ export default function CustomHeader() {
       {/* Dropdown-menu vises kun hvis navOpen er true */}
       {navOpen && (
         <View style={styles.menu}>
-          <Text style={styles.menuItem}>Home</Text>
-          <Text style={styles.menuItem}>About</Text>
-          <Text style={styles.menuItem}>Projects</Text>
-
+        
           <TouchableOpacity style={styles.contactButton}>
             <Text style={styles.contactText}>Contact</Text>
           </TouchableOpacity>

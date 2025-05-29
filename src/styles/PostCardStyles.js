@@ -21,14 +21,13 @@ export default StyleSheet.create({
     fontSize: 18,
     fontWeight: '600', // Halvfed skrift
     color: colors.text, // Farve defineret i farvefilen
-    paddingHorizontal: 8,
-    paddingTop: 8,
   },
   // Beskrivelse af posten
   description: {
     fontSize: 14,
     color: '#666', // Lidt lysere grå for kontrast
     paddingHorizontal: 8,
+    paddingTop: 8,
     paddingBottom: 8,
   },
   // Nederste sektion med stjerner og ikoner
@@ -78,7 +77,7 @@ export default StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 12,
     borderRadius: 16,
-    backgroundColor: '#5C2D91', // Grøn farve for visuel handling
+    backgroundColor: colors.secondary, // Grøn farve for visuel handling
   },
 
   // Tekst inde i "Follow"-knap
@@ -87,4 +86,13 @@ export default StyleSheet.create({
     fontWeight: '600',
     fontSize: 14,
   },
+titleRow: {
+  flexDirection: 'row',           // Sætter tekst og ikon på samme linje
+  justifyContent: 'space-between',// Skubber dem ud i hver ende
+  alignItems: 'center',           // Sørger for vertikal alignment
+  marginTop: 8,
+  paddingHorizontal: 8,
+}
+
+
 });

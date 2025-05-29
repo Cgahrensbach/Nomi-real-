@@ -21,7 +21,7 @@ export default function SearchScreen() {
       />
 
       {/* Midlertidig tekst for at vise hvor søgeresultater kommer */}
-      <Text style={styles.text}>Søgeresultater kommer her...</Text>
+      <Text style={styles.text}>Search results will be shown here...</Text>
     </View>
   );
 }
