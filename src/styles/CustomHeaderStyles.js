@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   contactButton: {
     marginTop: 12,
     padding: 10,
-    backgroundColor: colors.text,
+    backgroundColor: colors.primary,
     borderRadius: 10,
   },
   contactText: {
@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: '600',
     textAlign: 'center',
+  },
+  settingsButton: {
+    marginTop: 12,
+    padding: 10,
+    backgroundColor: colors.settings,
+    borderRadius: 10,
+
   },
 });
 

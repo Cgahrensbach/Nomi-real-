@@ -7,6 +7,7 @@ const colors = {
   danger: '#FF4C4C',
   green: '#00C48C',
   white: '#FFFFFF',
+  settings: '#BDBDBD',
 };
 
 export default colors; // ✅ kun én export

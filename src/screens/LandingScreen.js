@@ -50,7 +50,7 @@ export default function LandingScreen() {
             price={item.price}
             rating={item.rating}
             latitude={item.latitude}
-            longtitude={item.longtitude}
+            longtitude={item.longitude}
           />
         )}
         keyExtractor={(item) => item.id} // Nødvendigt for performance
