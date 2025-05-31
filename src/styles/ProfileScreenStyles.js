@@ -7,7 +7,7 @@ export default StyleSheet.create({
   // Root-container: fylder hele skærmen, hvid baggrund
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.background,
   },
 
   // Profil-sektion: avatar og infoWrapper (navn + counts)
