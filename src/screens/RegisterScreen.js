@@ -1,110 +1,135 @@
-// Importer nødvendige moduler og hooks
-import React, { useState } from 'react';
-import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
-import { supabase } from '../lib/supabase'; // Din Supabase-klient
+// src/screens/RegisterScreen.js
 
+import React, { useState } from 'react';
+import {
+  View,
+  TextInput,
+  Text,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
+
+import { supabase } from '../lib/supabase';
+import colors from '../styles/colors';
+// Importér de opdelt styles
+import styles from '../styles/RegisterStyles';
+
+/**
+ * RegisterScreen
+ *
+ * • Viser et logo (fra Supabase-bucket) centreret øverst.
+ * • Under logoet vises tre inputfelter (Email, Password, Confirm Password).
+ * • To knapper i colors.primary:
+ *     - Register
+ *     - “Back to Login” (navigerer til LoginScreen)
+ */
 export default function RegisterScreen({ navigation }) {
-  // 🎯 State til at gemme email, password og bekræftet password
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // ✅ Funktion der kører når brugeren trykker på "Register"
   const handleRegister = async () => {
-    // 🔐 Tjek at alle felter er udfyldt
     if (!email || !password || !confirmPassword) {
-      Alert.alert('Missing fields', 'Please fill out all fields');
+      Alert.alert('Fejl', 'Udfyld alle felter');
       return;
     }
 
-    // 🔐 Tjek at password og confirmPassword matcher
     if (password !== confirmPassword) {
-      Alert.alert('Password mismatch', 'Passwords do not match');
+      Alert.alert('Fejl', 'Password og confirm password matcher ikke');
       return;
     }
 
-    // 🔐 Tjek at passwordet er langt nok
     if (password.length < 6) {
-      Alert.alert('Weak password', 'Password must be at least 6 characters');
+      Alert.alert('Fejl', 'Password skal være mindst 6 karakterer');
       return;
     }
 
     try {
-      // 📤 Send registreringsforespørgsel til Supabase
       const { user, session, error } = await supabase.auth.signUp({
         email,
         password,
       });
 
-      // 📟 Log svar i devtools
-      console.log('Supabase register result:', { user, session, error });
+      console.log('Supabase register:', { user, session, error });
 
       if (error) {
-        // ❌ Hvis Supabase returnerer fejl
         Alert.alert('Registration failed', error.message);
         return;
       }
 
       if (!session) {
-        // ✅ Konto oprettet, men email skal bekræftes
         Alert.alert(
-          'Almost there',
-          'Check your email to confirm your account.'
+          'Tjek din email',
+          'Vi har sendt en bekræftelsesmail. Bekræft din konto for at logge ind.'
         );
-        navigation.replace('Login'); // Navigér tilbage til login
+        navigation.replace('Login');
       } else {
-        // ✅ Konto oprettet og logget ind automatisk (afhænger af Supabase settings)
-        Alert.alert('Welcome!', 'Your account has been created.');
-        navigation.replace('LandingScreen'); // Gå direkte til appen
+        Alert.alert('Velkommen!', 'Din konto er oprettet.');
+        navigation.replace('LandingScreen');
       }
     } catch (err) {
-      // 🧱 Hvis noget andet går galt (fx netværksfejl)
       console.error('Registration error:', err);
-      Alert.alert('Unexpected error', 'Something went wrong during signup.');
+      Alert.alert('Uventet fejl', 'Noget gik galt under registrering.');
     }
   };
 
-  // 📱 Layout til formularen
   return (
     <View style={styles.container}>
+      {/* Logo øverst */}
+      <Image
+        source={{
+          uri:
+            'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Nomi_logo_tight_cropped.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvTm9taV9sb2dvX3RpZ2h0X2Nyb3BwZWQucG5nIiwiaWF0IjoxNzQ4NzI1Njk3LCJleHAiOjQ5MDIzMjU2OTd9.-dBSZWvwePUkez4R3rZ516ycbm_3LxsEm8JUaPW356s',
+        }}
+        style={styles.logo}
+      />
+
+      {/* Email input */}
       <TextInput
         placeholder="Email"
+        placeholderTextColor={colors.textGray}
         value={email}
         onChangeText={setEmail}
         style={styles.input}
         autoCapitalize="none"
+        keyboardType="email-address"
       />
+
+      {/* Password input */}
       <TextInput
         placeholder="Password"
+        placeholderTextColor={colors.textGray}
         value={password}
         onChangeText={setPassword}
         style={styles.input}
         secureTextEntry
       />
+
+      {/* Confirm Password input */}
       <TextInput
         placeholder="Confirm Password"
+        placeholderTextColor={colors.textGray}
         value={confirmPassword}
         onChangeText={setConfirmPassword}
         style={styles.input}
         secureTextEntry
       />
-      <Button title="Register" onPress={handleRegister} />
-      <Button title="Back to Login" onPress={() => navigation.navigate('Login')} />
+
+      {/* Register knap */}
+      <TouchableOpacity style={styles.primaryButton} onPress={handleRegister}>
+        <Text style={styles.primaryButtonText}>Register</Text>
+      </TouchableOpacity>
+
+      {/* Back to Login knap */}
+      <TouchableOpacity
+        style={[styles.secondaryButton, { borderColor: colors.primary }]}
+        onPress={() => navigation.navigate('Login')}
+      >
+        <Text style={[styles.secondaryButtonText, { color: colors.primary }]}>
+          Back to Login
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
-
-// 🎨 Styling til registreringsformular
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    marginTop: 60,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    marginBottom: 12,
-    borderRadius: 4,
-  },
-});

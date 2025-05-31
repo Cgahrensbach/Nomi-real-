@@ -1,15 +1,15 @@
-// src/styles/RegisterStyles.js
+// src/styles/LoginStyles.js
 
 import { StyleSheet } from 'react-native';
 import colors from './colors';
 
 export default StyleSheet.create({
-  // Root-container: centrer alt lodret og horisontalt
+  // Root-container: centrer alt lodret og horisontalt, men starten rykkes mere ned
   container: {
     flex: 1,
     backgroundColor: colors.white,
     paddingHorizontal: 24,
-    paddingTop: 150,
+    paddingTop: 150,  // Øget fra 60 til 100 for at rykke ned
     alignItems: 'center',
   },
 
