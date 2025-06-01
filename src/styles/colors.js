@@ -2,10 +2,10 @@
 const colors = {
   background: '#F9F9F9',
   text: '#2D2D2D',
-  primary: '#FF7A00',
-  secondary: '#5C2D91',
+  Primary1: '#00C48C',
+  Primary2: '#5C2D91',
+  Secondary1: '#1F2937',
   danger: '#FF4C4C',
-  green: '#00C48C',
   white: '#FFFFFF',
   settings: '#BDBDBD',
 };

@@ -13,7 +13,7 @@ import {
 import { supabase } from '../lib/supabase';
 import colors from '../styles/colors';
 // Importér de opdelt styles
-import styles from '../styles/RegisterStyles';
+import styles from '../styles/registerStyles';
 
 /**
  * RegisterScreen
@@ -123,10 +123,10 @@ export default function RegisterScreen({ navigation }) {
 
       {/* Back to Login knap */}
       <TouchableOpacity
-        style={[styles.secondaryButton, { borderColor: colors.primary }]}
+        style={[styles.secondaryButton, { borderColor: colors.Primary1 }]}
         onPress={() => navigation.navigate('Login')}
       >
-        <Text style={[styles.secondaryButtonText, { color: colors.primary }]}>
+        <Text style={[styles.secondaryButtonText, { color: colors.Primary1 }]}>
           Back to Login
         </Text>
       </TouchableOpacity>

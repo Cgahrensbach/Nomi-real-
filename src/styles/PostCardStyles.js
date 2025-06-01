@@ -76,7 +76,7 @@ export default StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 12,
     borderRadius: 16,
-    backgroundColor: colors.secondary, // Grøn farve for visuel handling
+    backgroundColor: colors.Primary2, // Grøn farve for visuel handling
   },
 
   // Tekst inde i "Follow"-knap

@@ -4,6 +4,8 @@ import React from 'react';
 // Importerer View, Text og TextInput til layout og inputfelter
 import { View, Text, TextInput } from 'react-native';
 import CustomHeader from '../components/CustomHeader';
+
+
 // Importerer stylesheetet specifikt til denne skærm
 import styles from '../styles/SearchScreenStyles';
 

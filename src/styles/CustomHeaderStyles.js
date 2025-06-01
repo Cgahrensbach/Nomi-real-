@@ -4,8 +4,8 @@ import colors from './colors';
 const styles = StyleSheet.create({
   headerContainer: {
     width: '100%',
-    backgroundColor: colors.green,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 12 : 48, // 🔽 Skub hele headeren under statusbar
+    backgroundColor: colors.Primary1,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight + 12 : 48, 
     paddingHorizontal: 16,
     paddingBottom: 16,
   },
@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
   },
   menu: {
     marginTop: 12,
-    backgroundColor: colors.green,
+    backgroundColor: colors.Primary1,
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 10,
   },
   menuItem: {
     fontSize: 16,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   contactButton: {
     marginTop: 12,
     padding: 10,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.Secondary1,
     borderRadius: 10,
   },
   contactText: {

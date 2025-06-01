@@ -99,8 +99,8 @@ export default StyleSheet.create({
     flex: 1,
     marginHorizontal: 11,
     paddingVertical: 8,
-    backgroundColor: colors.primary,
-    borderRadius: 6,
+    backgroundColor: colors.Secondary1,
+    borderRadius: 10,
     alignItems: 'center',
   },
 

@@ -93,11 +93,11 @@ export default function LoginScreen({ navigation }) {
 
       {/* Go to Register knap */}
       <TouchableOpacity
-        style={[styles.secondaryButton, { borderColor: colors.primary }]}
+        style={[styles.secondaryButton, { borderColor: colors.Primary1 }]}
         onPress={() => navigation.navigate('Register')}
       >
-        <Text style={[styles.secondaryButtonText, { color: colors.primary }]}>
-          Go to Register
+        <Text style={[styles.secondaryButtonText, { color: colors.Primary1 }]}>
+          Register
         </Text>
       </TouchableOpacity>
     </View>

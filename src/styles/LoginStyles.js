@@ -37,7 +37,7 @@ export default StyleSheet.create({
   // Primær knap-styling (colors.primary baggrund)
   primaryButton: {
     width: '100%',
-    backgroundColor: colors.primary,
+    backgroundColor: colors.green,
     borderRadius: 8,
     paddingVertical: 14,
     alignItems: 'center',
@@ -54,7 +54,7 @@ export default StyleSheet.create({
   secondaryButton: {
     width: '100%',
     borderWidth: 1,
-    borderRadius: 8,
+    borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
   },
