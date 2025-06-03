@@ -11,16 +11,16 @@ export default StyleSheet.create({
     borderColor: colors.text,
     padding: 10,
     borderRadius: 10,
-    marginHorizontal: 25,  // Luft fra siderne
-    marginTop: 25,         // Luft oppefra
+    marginHorizontal: 25,  
+    marginTop: 25,         
     color: colors.text,
   },
   inputPlaceholderColor: colors.text,
   text: {
     color: colors.text,
-    fontSize: 16,
-    marginHorizontal: 25,  // Matcher input's venstre og højre margin
-    marginTop: 25,         // Luft nedad fra inputfeltet
+    fontSize: 14,
+    marginHorizontal: 25,  
+    marginTop: 25,         
   },
   textInput: {
     margin: 2,

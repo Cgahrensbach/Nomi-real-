@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../styles/CustomHeaderStyles'; // Stylefil med mobilvenligt layout
+import colors from '../styles/colors';
 
 export default function CustomHeader() {
   const [navOpen, setNavOpen] = useState(false); // Styrer om menuen vises

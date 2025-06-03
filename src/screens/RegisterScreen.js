@@ -1,4 +1,4 @@
-// src/screens/RegisterScreen.js
+
 
 import React, { useState } from 'react';
 import {
@@ -12,18 +12,8 @@ import {
 
 import { supabase } from '../lib/supabase';
 import colors from '../styles/colors';
-// Importér de opdelt styles
 import styles from '../styles/registerStyles';
 
-/**
- * RegisterScreen
- *
- * • Viser et logo (fra Supabase-bucket) centreret øverst.
- * • Under logoet vises tre inputfelter (Email, Password, Confirm Password).
- * • To knapper i colors.primary:
- *     - Register
- *     - “Back to Login” (navigerer til LoginScreen)
- */
 export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

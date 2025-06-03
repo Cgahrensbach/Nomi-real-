@@ -25,23 +25,21 @@ export default StyleSheet.create({
   input: {
     width: '100%',
     borderWidth: 1,
-    borderColor: colors.grayLight,
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 16,
     marginBottom: 16,
     fontSize: 16,
-    color: colors.grayDark,
   },
 
   // Primær knap-styling (colors.primary baggrund)
   primaryButton: {
     width: '100%',
-    backgroundColor: colors.green,
+    backgroundColor: colors.Primary1,
     borderRadius: 8,
     paddingVertical: 14,
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 12,
     marginBottom: 12,
   },
   primaryButtonText: {

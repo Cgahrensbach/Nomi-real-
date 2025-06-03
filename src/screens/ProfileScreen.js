@@ -1,5 +1,3 @@
-// src/screens/ProfileScreen.js
-
 import React from 'react';
 import {
   View,
@@ -53,10 +51,7 @@ export default function ProfileScreen() {
 
   return (
     <View style={styles.container}>
-      {/* CustomHeader øverst */}
       <CustomHeader />
-
-      {/* Profilsektion: avatar og navn + counts */}
       <View style={styles.profileSection}>
         <Image
           source={{ uri: user.avatar_url }}
@@ -83,12 +78,10 @@ export default function ProfileScreen() {
         </View>
       </View>
 
-      {/* Bio under avatar */}
       <View style={styles.bioContainer}>
         <Text style={styles.bioText}>{user.bio}</Text>
       </View>
 
-      {/* Knapper under bio */}
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Edit Profile</Text>

@@ -3,7 +3,7 @@ import colors from './colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.background, // INGEN padding
+    backgroundColor: colors.background, 
     flexGrow: 1,
   },
 
@@ -11,8 +11,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
-    marginHorizontal: 20, // Luft fra sider
-    marginTop: 20,         // Luft under header
+    marginHorizontal: 20, 
+    marginTop: 20,         
     marginBottom: 10,
   },
 
@@ -36,12 +36,12 @@ export default StyleSheet.create({
     borderRadius: 10,
     color: colors.text,
     marginHorizontal: 20,
-    marginBottom: 15,
+    marginBottom: 12,
   },
 
   label: {
     color: colors.text,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
     marginTop: 20,
     marginBottom: 8,
@@ -59,7 +59,7 @@ export default StyleSheet.create({
   },
 
   postButton: {
-    backgroundColor: '#5C2D91',
+    backgroundColor: colors.Primary2,
     padding: 12,
     borderRadius: 10,
     flex: 1,
@@ -68,7 +68,7 @@ export default StyleSheet.create({
   },
 
   archiveButton: {
-    backgroundColor: '#aaa',
+    backgroundColor: colors.settings,
     padding: 12,
     borderRadius: 10,
     flex: 1,
@@ -76,13 +76,14 @@ export default StyleSheet.create({
   },
 
   buttonText: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '600',
+    fontSize: 14,
   },
   imageWrapper: {
   position: 'relative',
-  marginRight: 10,
-  marginBottom: 10,
+  marginRight: 12,
+  marginBottom: 12,
 },
 
 deleteButton: {
@@ -98,7 +99,7 @@ placeholderBox: {
   height: 100,
   width: '100%',
   borderWidth: 1,
-  borderColor: '#ccc',
+  borderColor: colors.settings,
   borderRadius: 8,
   justifyContent: 'center',
   alignItems: 'center',
@@ -106,7 +107,7 @@ placeholderBox: {
 },
 
 placeholderText: {
-  color: '#aaa',
+  color: colors.settings,
   fontStyle: 'italic',
 },
 

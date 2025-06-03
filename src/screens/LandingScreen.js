@@ -4,7 +4,7 @@ import CustomHeader from '../components/CustomHeader';
 import PostCard from '../components/PostCard';
 import styles from '../styles/LandingScreenStyles';
 
-// Dummy-data til visning i feedet
+
 const dummyPosts = [
   {
     id: '1',
@@ -32,16 +32,14 @@ const dummyPosts = [
   },
 ];
 
-// LandingScreen: hovedfeed-skærmen i appen
+
 export default function LandingScreen() {
   return (
     <View style={styles.container}>
-      {/* Øverste header vises fast */}
       <CustomHeader />
 
-      {/* FlatList viser alle postkort (PostCards) baseret på dummyPosts-array */}
       <FlatList
-        data={dummyPosts} // Bruger dummy-posts
+        data={dummyPosts} 
         renderItem={({ item }) => (
           <PostCard
             title={item.title}
@@ -53,7 +51,7 @@ export default function LandingScreen() {
             longtitude={item.longitude}
           />
         )}
-        keyExtractor={(item) => item.id} // Nødvendigt for performance
+        keyExtractor={(item) => item.id} 
         contentContainerStyle={styles.feed}
       />
     </View>

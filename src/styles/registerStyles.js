@@ -1,10 +1,7 @@
-// src/styles/RegisterStyles.js
-
 import { StyleSheet } from 'react-native';
 import colors from './colors';
 
 export default StyleSheet.create({
-  // Root-container: centrer alt lodret og horisontalt
   container: {
     flex: 1,
     backgroundColor: colors.white,
@@ -12,29 +9,22 @@ export default StyleSheet.create({
     paddingTop: 150,
     alignItems: 'center',
   },
-
-  // Logo-styling: centreret og passende størrelse
   logo: {
     width: 120,
     height: 120,
     marginBottom: 40,
     resizeMode: 'contain',
   },
-
-  // Fælles styling for inputfelter
   input: {
     width: '100%',
     borderWidth: 1,
-    borderColor: colors.grayLight,
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 16,
     marginBottom: 16,
     fontSize: 16,
-    color: colors.grayDark,
+    color: colors.text,
   },
-
-  // Primær knap-styling (colors.primary baggrund)
   primaryButton: {
     width: '100%',
     backgroundColor: colors.Primary1,
@@ -49,8 +39,6 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-
-  // Sekundær knap-styling (outline med colors.primary)
   secondaryButton: {
     width: '100%',
     borderWidth: 1,

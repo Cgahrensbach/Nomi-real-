@@ -1,100 +1,77 @@
-// Importér StyleSheet fra React Native og globale farver
 import { StyleSheet } from 'react-native';
-import colors from './colors'; // Importér farvefil med ensartet design
+import colors from './colors';
 
 export default StyleSheet.create({
-  // Overordnet kort – vises som post i feedet
   card: {
-    backgroundColor: '#fff', // Hvid baggrund på kortet
-    borderRadius: 8, // Afrundede hjørner
-    marginBottom: 16, // Luft under hvert kort
-    overflow: 'hidden', // Skjul indhold der går udenfor kanten (især billede)
-    elevation: 2, // Skyggeeffekt (Android)
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    marginBottom: 12,
+    overflow: 'hidden',
+    elevation: 2,
   },
-  // Post-billede
   image: {
-    width: '100%', // Fylder hele kortets bredde
-    height: 160, // Fast højde på billedet
+    width: '100%',
+    height: 160,
   },
-  // Titel og pris (øverste tekstdel)
   title: {
     fontSize: 18,
-    fontWeight: '600', // Halvfed skrift
-    color: colors.text, // Farve defineret i farvefilen
+    fontWeight: '600',
+    color: colors.text,
   },
-  // Beskrivelse af posten
   description: {
     fontSize: 14,
-    color: '#666', // Lidt lysere grå for kontrast
+    color: colors.grayText,
     paddingHorizontal: 8,
     paddingBottom: 8,
   },
-  // Nederste sektion med stjerner og ikoner
   footer: {
-    flexDirection: 'row', // Horisontalt layout
-    justifyContent: 'space-between', // Placerer stjerner til venstre og ikoner til højre
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingBottom: 12,
   },
-  // Container til stjerner
   stars: {
-    flexDirection: 'row', // Horisontalt layout af stjerner
+    flexDirection: 'row',
   },
-  // Container til interaktionsikoner
   actions: {
     flexDirection: 'row',
-    gap: 12, // Tilføjer mellemrum mellem ikoner (kræver nyere version af React Native)
+    gap: 12,
   },
-   // ------------------------ ACCOUNT BAR ------------------------
-
-  // Øverste linje med profil og follow-knap
   accountBar: {
-    flexDirection: 'row',            // Vandret layout
-    alignItems: 'center',            // Centrer lodret
-    justifyContent: 'space-between', // Sørger for at follow-knappen ligger helt til højre
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     padding: 8,
   },
-
-  // Profilbillede – skal vises som cirkel
   profileImage: {
     width: 36,
     height: 36,
-    borderRadius: 18, // Halvdelen af width/height = perfekt cirkel
+    borderRadius: 10,
     marginRight: 8,
   },
-
-  // Brugernavn
   username: {
     fontSize: 16,
-    color: '#333',
-    flex: 1, // Gør feltet fleksibelt så follow-knappen skubbes mod højre
+    color: colors.text,
+    flex: 1,
   },
-
-  // "Follow"-knap container
   followButton: {
     paddingVertical: 4,
     paddingHorizontal: 12,
-    borderRadius: 16,
-    backgroundColor: colors.Primary2, // Grøn farve for visuel handling
+    borderRadius: 10,
+    backgroundColor: colors.Primary2,
   },
-
-  // Tekst inde i "Follow"-knap
   followText: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 14,
   },
   titleRow: {
-    flexDirection: 'row',            // Horisontal linje (tekst og ikon)
-    justifyContent: 'space-between', // Placerer titel til venstre og ikon til højre
-    alignItems: 'center',            // Sørger for lodret centrering
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 8,
     marginTop: 8,
-    marginBottom: 6
+    marginBottom: 6,
   },
-  
-  
-
-
 });

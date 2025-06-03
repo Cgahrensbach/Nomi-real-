@@ -2,6 +2,7 @@
 const colors = {
   background: '#F9F9F9',
   text: '#2D2D2D',
+  grayText: '#666',
   Primary1: '#00C48C',
   Primary2: '#5C2D91',
   Secondary1: '#1F2937',
@@ -10,4 +11,4 @@ const colors = {
   settings: '#BDBDBD',
 };
 
-export default colors; // ✅ kun én export
+export default colors; // ✅ kun én export  

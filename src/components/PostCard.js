@@ -103,6 +103,9 @@ export default function PostCard({
           <TouchableOpacity>
             <Ionicons name="bookmark-outline" size={20} color="#333" />
           </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons name="send-outline" size={20} color="#333" />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -172,7 +175,7 @@ const modalStyles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 10,
-    backgroundColor: 'rgba(0,0,0,0.7)', // Sort baggrund med transparens
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Sort baggrund med transparens
     padding: 8,
     borderRadius: 20
   },

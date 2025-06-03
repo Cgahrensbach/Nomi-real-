@@ -6,6 +6,7 @@ import LandingScreen from '../screens/LandingScreen';
 import SearchScreen from '../screens/SearchScreen';
 import UploadScreen from '../screens/UploadScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import colors from '../styles/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +15,7 @@ export default function BottomTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarShowLabel: false, // ingen tekst under ikoner
+        tabBarShowLabel: false, 
         tabBarStyle: {
           backgroundColor: '#fff',
           borderTopWidth: 0.5,
@@ -30,15 +31,15 @@ export default function BottomTabs() {
           } else if (route.name === 'Upload') {
             iconName = focused ? 'add-circle' : 'add-circle-outline';
             size = 42; // større icon i midten
-            color = '#22c55e'; // grøn farve til at fremhæve
+            color = colors.Primary1;
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#22c55e',
-        tabBarInactiveTintColor: '#aaa',
+        tabBarActiveTintColor: colors.Primary1,
+        tabBarInactiveTintColor: colors.white,
       })}
     >
       <Tab.Screen name="Feed" component={LandingScreen} />
