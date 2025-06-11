@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Importér Ionicons – et ikonbibliotek fra Expo der indeholder mange mobilvenlige ikoner
 import { Ionicons } from '@expo/vector-icons';
-
+import colors from '../styles/colors';
 // Importér de screens som skal vises i hver tab (du skal selv oprette disse filer)
 import LandingScreen from '../screens/LandingScreen';     // Hovedfeedet
 import SearchScreen from '../screens/SearchScreen';       // Søgefunktion
@@ -26,7 +26,7 @@ export default function BottomTabsNav() {
         headerShown: false,               // Vi skjuler standard header for at bruge vores egen eller holde layout rent
         tabBarShowLabel: false,          // Vi viser ikke tekst under ikonerne – kun ikoner
         tabBarStyle: {
-          backgroundColor: '#fff',       // Baggrundsfarve på selve bottom-tabbaren
+          backgroundColor: colors.white,       // Baggrundsfarve på selve bottom-tabbaren
           height: 60,                    // Gør tab-baren lidt højere for at give plads til ikoner
           borderTopWidth: 0.2,           // En tynd linje øverst på tab-baren for visuel adskillelse
           borderTopColor: '#ccc',
@@ -48,7 +48,7 @@ export default function BottomTabsNav() {
           // Hvis vi er på Upload-tabben (midterknappen)
           if (route.name === 'Upload') {
             iconName = focused ? 'add-circle' : 'add-circle-outline';
-            size = 30;                  // Gør upload-ikonet større for at fremhæve det i midten        // Grøn farve for at indikere action/handling
+                  // Gør upload-ikonet større for at fremhæve det i midten        // Grøn farve for at indikere action/handling
           }
 
           // Hvis vi er på Profile-tabben
@@ -59,8 +59,8 @@ export default function BottomTabsNav() {
           // Returner et Ionicon-komponent med valgt ikon, størrelse og farve
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#00C48C',  // Grøn farve når en tab er aktiv
-        tabBarInactiveTintColor: '#aaa',   // Grå farve for inaktive tabs
+        tabBarActiveTintColor: colors.Primary1,  // Grøn farve når en tab er aktiv
+        tabBarInactiveTintColor: colors.settings,   // Grå farve for inaktive tabs
       })}
     >
       {/* Her definerer vi hvad hver "tab" skal vise – skærm og navn skal matche */}
