@@ -1,23 +1,36 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import styles from '../styles/CustomHeaderStyles'; // Stylefil med mobilvenligt layout
+import { supabase } from '../lib/supabase';
+import styles from '../styles/CustomHeaderStyles'; 
 import colors from '../styles/colors';
 
 export default function CustomHeader() {
-  const [navOpen, setNavOpen] = useState(false); // Styrer om menuen vises
+  const [navOpen, setNavOpen] = useState(false); 
 
   const toggleMenu = () => {
-    setNavOpen(!navOpen); // Skifter mellem åben/lukket menu
+    setNavOpen(!navOpen); 
   };
 
+  const handleLogout = async () => {
+  try {
+    const { error } = await supabase.auth.signOut();  
+    if (error) {
+      console.error('Logout error:', error.message);
+      return;
+    }
+    navigation.replace('LoginScreen');  
+  } catch (err) {
+    console.error('Unexpected logout error:', err);
+  }
+};
   return (
     <View style={styles.headerContainer}>
       {/* Øverste række: Logo + burgerikon */}
       <View style={styles.headerTop}>
         <Image
           source={{
-            uri: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Nomi_logo_tight_cropped.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvTm9taV9sb2dvX3RpZ2h0X2Nyb3BwZWQucG5nIiwiaWF0IjoxNzQ3OTI5NTQyLCJleHAiOjQ5MDE1Mjk1NDJ9._QLd9Z0qiOd0MxYmcuAjKtYDH89bpBWwsHWG8Z3kVwk',
+            uri: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Nomi_logo_tight_cropped.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvTm9taV9sb2dvX3RpZ2h0X2Nyb3BwZWQucG5nIiwiaWF0IjoxNzUwMTAyMDg0LCJleHAiOjQ5MDM3MDIwODR9.EOVLDd4T48XK12xy-9F0WEnLJ1mRrBRvhrKg9FElXK0',
           }}
           style={styles.logo}
           resizeMode="contain"
@@ -42,7 +55,7 @@ export default function CustomHeader() {
           <TouchableOpacity style={styles.settingsButton}>
             <Text style={styles.logoutText}>Settings</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.logoutButton}>
+          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
             <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
         </View>
