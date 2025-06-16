@@ -15,22 +15,14 @@ import colors from '../styles/colors';
 // Importér de opdelt styles
 import styles from '../styles/LoginStyles';
 
-/**
- * LoginScreen
- *
- * • Viser et logo (fra Supabase‐bucket) centreret øverst.
- * • Under logoet vises to inputfelter (Email, Password).
- * • Til sidst to knapper i colors.primary:
- *     - Login
- *     - “Go to Register” (navigerer til RegisterScreen)
- */
+
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert('Fejl', 'Udfyld både email og password');
+      Alert.alert('Error', 'Please enter both e-mail and password');
       return;
     }
 
@@ -50,7 +42,7 @@ export default function LoginScreen({ navigation }) {
       navigation.replace('LandingScreen');
     } catch (err) {
       console.error('Login error:', err);
-      Alert.alert('Unexpected error', 'Noget gik galt under login. Prøv igen.');
+      Alert.alert('Unexpected error', 'Something went wrong. Try again!');
     }
   };
 
