@@ -52,7 +52,7 @@ export default function LoginScreen({ navigation }) {
       <Image
         source={{
           uri:
-            'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Nomi_logo_tight_cropped.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvTm9taV9sb2dvX3RpZ2h0X2Nyb3BwZWQucG5nIiwiaWF0IjoxNzQ4NzI1Njk3LCJleHAiOjQ5MDIzMjU2OTd9.-dBSZWvwePUkez4R3rZ516ycbm_3LxsEm8JUaPW356s',
+            'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Nomi_logo_tight_cropped.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvTm9taV9sb2dvX3RpZ2h0X2Nyb3BwZWQucG5nIiwiaWF0IjoxNzUwMTAxODM4LCJleHAiOjQ5MDM3MDE4Mzh9.kEZmUHI8Y5MnIhu2CkM4Prs4yJUKxnnv3XXT_UAcI9g',
         }}
         style={styles.logo}
       />

@@ -44,7 +44,7 @@ export default function PostCard({
         {/* 9) Profilbillede — placeholder-ikon for nu */}
         <Image
           source={{
-            uri: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Profile%20image%20placeholder.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvUHJvZmlsZSBpbWFnZSBwbGFjZWhvbGRlci5wbmciLCJpYXQiOjE3NDg3MjUyNTAsImV4cCI6NDkwMjMyNTI1MH0.KBDfi0zGXxndC9zEYaVI9QmWRCV0tpq1COVuff-ceZk'
+            uri: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Profile%20image%20placeholder.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvUHJvZmlsZSBpbWFnZSBwbGFjZWhvbGRlci5wbmciLCJpYXQiOjE3NTAxMDE3MjEsImV4cCI6NDkwMzcwMTcyMX0.m7yPYgaVjJnffwWWisYEvbGl6j5esqk9LxaZsWmMq-U'
           }}
           style={styles.profileImage}
         />

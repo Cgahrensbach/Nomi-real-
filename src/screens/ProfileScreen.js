@@ -15,39 +15,39 @@ export default function ProfileScreen() {
   const user = {
     name: 'Nomi User',
     avatar_url:
-      'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Profile%20image%20placeholder.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvUHJvZmlsZSBpbWFnZSBwbGFjZWhvbGRlci5wbmciLCJpYXQiOjE3NDg3MjI3MjIsImV4cCI6NDkwMjMyMjcyMn0.Z9oOWOHY0ppALKyOO5hvOtQhzRWXJUJnCIqVSrULQO4',
+      'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Profile%20image%20placeholder.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvUHJvZmlsZSBpbWFnZSBwbGFjZWhvbGRlci5wbmciLCJpYXQiOjE3NTAxMDE3MjEsImV4cCI6NDkwMzcwMTcyMX0.m7yPYgaVjJnffwWWisYEvbGl6j5esqk9LxaZsWmMq-U',
     bio: 'Jeg elsker at dele gode madoplevelser og vise byens bedste spots. Følg med for flere anbefalinger!',
     postCount: 3,
     followersCount: 120,
     followingCount: 80,
   };
 
-  const dummyPosts = [
-    {
-      id: '1',
-      title: 'Ramen Heaven',
-      description: 'Authentic Japanese Ramen',
-      image: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/ramen%20noodle%20photo.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvcmFtZW4gbm9vZGxlIHBob3RvLmpwZyIsImlhdCI6MTc0ODAxODAzOCwiZXhwIjo0OTAxNjE4MDM4fQ.91yVEglJ0b17sgH9SyYNXXF0WfYFJD1cIV2R9ARseZU',
-      price: '$$',
-      rating: 4.5,
-    },
-    {
-      id: '2',
-      title: 'Pizza Napoli',
-      description: 'Sprød bund og kraftig tomatsovs, direkte fra Italien.',
-      image: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/pizza%20napoli.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvcGl6emEgbmFwb2xpLnBuZyIsImlhdCI6MTc0ODAxODA4MCwiZXhwIjo0OTAxNjE4MDgwfQ.SKZey0rz8tT0ZW-6Uo2wfaURcZh29nQa6fW-szPfLWk',
-      price: '$',
-      rating: 5,
-    },
-    {
-      id: '3',
-      title: 'Tacos El Diablo',
-      description: 'Majstortillas med stærkt kød og koriander.',
-      image: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Tacos.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2MxNWEyZTJjLTM1ZWYtNGE3YS05ZGM1LTBiZDc2OGViMDZiYSJ9.eyJ1cmwiOiJpbWFnZXMvVGFjb3MuanBnIiwiaWF0IjoxNzQ4MDE4MTE1LCJleHAiOjQ5MDE2MTgxMTV9.Hc3x25ISVSaoVBDqXpOlTMHFXxYlcyp1BDcL_sc-FlM',
-      price: '$',
-      rating: 4,
-    },
-  ];
+const dummyPosts = [
+  {
+    id: '1',
+    title: 'Ramen Heaven',
+    description: 'Authentic Japanese Ramen',
+    image: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/ramen%20noodle%20photo.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvcmFtZW4gbm9vZGxlIHBob3RvLmpwZyIsImlhdCI6MTc1MDEwMTYyNiwiZXhwIjo0OTAzNzAxNjI2fQ.ETX8qZc0_qDbGKpzjden38Wb-kPD1gN_NjkcHl55IIg',
+    price: '$$',
+    rating: 4.5,
+  },
+  {
+    id: '2',
+    title: 'Pizza Napoli',
+    description: 'Thin and crunchy pizza bottom with a deep tomatosauce directly from Italy',
+    image: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/pizza%20napoli.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvcGl6emEgbmFwb2xpLnBuZyIsImlhdCI6MTc1MDEwMTU5NSwiZXhwIjo0OTAzNzAxNTk1fQ.NAN5F0sNnfahS1LjSb_rQOCwQHSfroOtIowqXfQoVv4',
+    price: '$',
+    rating: 5,
+  },
+  {
+    id: '3',
+    title: 'Tacos El Diablo',
+    description: 'Corn Tortilla with spicy meat and coriander',
+    image: 'https://kalmqrdskgtwoiroqnez.supabase.co/storage/v1/object/sign/images/Tacos.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mZmMxYTM2YS1iYTk0LTRhNjMtODQ5Zi0zNjE3OTg4MjY1MTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWFnZXMvVGFjb3MuanBnIiwiaWF0IjoxNzUwMTAxNjY3LCJleHAiOjQ5MDM3MDE2Njd9.p1MSfGTli1_eThxBAhxVlswKQEWfBpXBFdOk4F3b0eE',
+    price: '$',
+    rating: 4,
+  },
+];
 
   return (
     <View style={styles.container}>
